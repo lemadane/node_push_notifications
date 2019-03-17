@@ -1,44 +1,51 @@
+import { error as errlog, log } from "console";
+
 const publicVapidKey =
   "BJthRQ5myDgc7OSXzPCMftGw-n16F7zQBEN7EUD6XxcfTTvrLGWSIG7y_JxiWtVlCFua0S8MTB5rPziBqNx1qIo";
 
 // Check for service worker
 if ("serviceWorker" in navigator) {
-  send().catch(err => console.error(err));
+  send().catch(err => errlog(err));
 }
 
 // Register SW, Register Push, Send Push
 async function send() {
   // Register Service Worker
-  console.log("Registering service worker...");
-  const register = await navigator.serviceWorker.register("/worker.js", {
-    scope: "/"
-  });
-  console.log("Service Worker Registered...");
+  
+  log("Registering service worker...");
+  
+  const register = await navigator
+    .serviceWorker.register(
+      "/worker.js", { scope: "/" });
+
+  log("Service Worker Registered...");
 
   // Register Push
-  console.log("Registering Push...");
+  log("Registering Push...");
   const subscription = await register.pushManager.subscribe({
+    applicationServerKey: urlBase64ToUint8Array(
+      publicVapidKey),
     userVisibleOnly: true,
-    applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
   });
-  console.log("Push Registered...");
+  
+  log("Push Registered...");
 
   // Send Push Notification
-  console.log("Sending Push...");
+  log("Sending Push...");
   await fetch("/subscribe", {
-    method: "POST",
     body: JSON.stringify(subscription),
     headers: {
       "content-type": "application/json"
-    }
+    },
+    method: "POST"
   });
-  console.log("Push Sent...");
+  log("Push Sent...");
 }
 
-function urlBase64ToUint8Array(base64String) {
+function urlBase64ToUint8Array(base64String: string) {
   const padding = "=".repeat((4 - base64String.length % 4) % 4);
   const base64 = (base64String + padding)
-    .replace(/\-/g, "+")
+    .replace(/-/g, "+")
     .replace(/_/g, "/");
 
   const rawData = window.atob(base64);
