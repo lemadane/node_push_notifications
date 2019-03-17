@@ -9,30 +9,3 @@
     },
     "rulesDirectory": []
 }
-
-// "member-ordering": [
-//     true,
-//     {
-//         "order": [
-//             "public-static-field",
-//             "public-instance-field",
-//             "public-constructor",
-//             "private-static-field",
-//             "private-instance-field",
-//             "private-constructor",
-//             "public-instance-method",
-//             "protected-instance-method",
-//             "private-instance-method"
-//         ],
-//         "alphabetize": true
-//     }
-// ],
-// "ordered-imports": true,
-// "quotemark": [true, "double"],
-// "await-promise": [true, "Thenable"],
-// "deprecation": true,
-// "no-floating-promises": true,
-// "no-unused-expression": true,
-// "no-unsafe-any": true
-
-// "tslint-config-standard",

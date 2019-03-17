@@ -1,7 +1,7 @@
-import { error, log } from "console";
-import * as express from "express";
-import { join } from "path";
-import * as webpush from "web-push";
+import { error, log } from 'console';
+import * as express from 'express';
+import { join } from 'path';
+import * as webpush from 'web-push';
 
 const app = express()
 
