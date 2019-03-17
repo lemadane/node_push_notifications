@@ -5,7 +5,9 @@
         "tslint-config-prettier"
     ],
     "jsRules": {},
-    "rules": {  
+    "rules": {
+        "quotemark": [true, "double", "avoid-escape", "avoid-template"],
+        "semicolon": [true, "always"]
     },
     "rulesDirectory": []
 }

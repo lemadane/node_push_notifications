@@ -7,14 +7,14 @@ const webpush = require("web-push");
 const app = express();
 app.use(express.static(path_1.join(__dirname, "client")));
 app.use(express.json());
-const publicVapidKey = "BJthRQ5myDgc7OSXzPCMftGw-n16F7zQBEN7EUD6XxcfTTvrLGWSIG7y_JxiWtVlCFua0S8MTB5rPziBqNx1qIo";
-const privateVapidKey = "3KzvKasA2SoCxsp0iIG_o9B0Ozvl1XDwI63JRKNIWBM";
-webpush.setVapidDetails("mailto:test@test.com", publicVapidKey, privateVapidKey);
+const publicVapidKey = "BALBydPXGJ3oYV2HFMYWmGi8bCErZnC754f9a-X05Zzd4DlXC6xP90HQlh_yHgpScuzqH9qrzlU1FZ2WBIsicsY";
+const privateVapidKey = "VYMShxQMW5wYqGvFgnlBK6-dFbNZIfxdlpbJliAfz9M";
+webpush.setVapidDetails("mailto:lem@email.com", publicVapidKey, privateVapidKey);
 app.post("/subscribe", (request, response) => {
-    const subscription = request.body;
+    const pushSubscription = request.body;
     response.status(201).json({});
     const payload = JSON.stringify({ title: "Push Test" });
-    webpush.sendNotification(subscription, payload)
+    webpush.sendNotification(pushSubscription, payload)
         .catch((err) => console_1.error(err));
 });
 app.port = 5000;

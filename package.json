@@ -4,10 +4,11 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node .",
-    "build": "tsc",
+    "start": "nodemon .",
+    "build": "tsc --watch",
     "format": "tslint 'src/**/*.ts' --fix",
-    "commit": "git add .; yarn git-cz"
+    "commit": "git add .; yarn git-cz",
+    "vapidkeys": "web-push generate-vapid-keys"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "@types/web-push": "^3.3.0",
     "commitizen": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
+    "nodemon": "^1.18.10",
     "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",
