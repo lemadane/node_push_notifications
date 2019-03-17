@@ -8,7 +8,8 @@
     "build": "tsc --watch",
     "format": "tslint 'src/**/*.ts' --fix",
     "commit": "git add .; yarn git-cz",
-    "vapidkeys": "web-push generate-vapid-keys"
+    "vapidkeys": "web-push generate-vapid-keys",
+    "kill": "fuser -n tcp -k 9001"
   },
   "keywords": [],
   "author": "",
