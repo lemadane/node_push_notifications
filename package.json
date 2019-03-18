@@ -1,22 +1,25 @@
 {
-  "name": "node_push_notification",
+  "name": "my-fcm-node",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "nodemon .",
-    "build": "tsc --watch",
+    "start": "node .",
+    "debug": "nodemon .",
+    "build": "tsc",
+    "bldwtch": "tsc . --watch",
     "format": "tslint 'src/**/*.ts' --fix",
     "commit": "git add .; yarn git-cz",
     "vapidkeys": "web-push generate-vapid-keys",
-    "kill": "fuser -n tcp -k 9001"
+    "kill": "fuser -n tcp -k 9001",
+    "push": "git push origin"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-    "web-push": "^3.3.1"
+    "firebase-admin": "^7.1.0"
   },
   "devDependencies": {
     "@types/express": "^4.16.1",
